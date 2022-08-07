@@ -1,0 +1,32 @@
+@import "variables/breakpoints";
+
+@import "mixins/reset";
+
+@import "modules/containers";
+@import "modules/Dashboard/containers";
+@import "modules/layout";
+@import "modules/icons";
+@import "modules/form";
+
+@import "modules/Dashboard/buttons";
+@import "modules/Dashboard/layout";
+@import "modules/Dashboard/error-box";
+@import "modules/Dashboard/sidebar";
+@import "modules/Dashboard/search";
+@import "modules/Dashboard/form";
+@import "modules/Dashboard/table";
+
+@import "modules/responsive";
+
+body, html{
+    background: #F1F2F7;
+}
+a{
+    opacity: .9;
+    transition: .2s opacity;
+    &:hover{
+        opacity: 1;
+    }
+}
+
+

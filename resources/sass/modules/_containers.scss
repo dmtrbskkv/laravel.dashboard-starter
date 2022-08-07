@@ -1,0 +1,33 @@
+.container {
+    position: relative;
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+.container-fixed {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.container-fixed-large {
+    width: 1560px;
+    margin: 0 auto;
+}
+
+.container-fixed-small {
+    width: 600px;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: $defaultBreakpoint) {
+    .container {
+        width: 100%;
+    }
+    .container-mobile-padding {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}

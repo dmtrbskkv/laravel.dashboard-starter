@@ -1,0 +1,11 @@
+@media screen and (min-width: $defaultBreakpoint) {
+    .hide-desktop{
+        display: none;
+    }
+}
+
+@media screen and (max-width: $defaultBreakpoint) {
+    .hide-mobile{
+        display: none;
+    }
+}

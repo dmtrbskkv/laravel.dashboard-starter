@@ -1,0 +1,41 @@
+.form-list-appending {
+    border: solid #e8e8e8 1px;
+    border-radius: 6px;
+    padding: 4px 10px;
+
+    margin: 9px 0;
+
+    .form-node {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+
+    & > button {
+        margin-top: 4px;
+    }
+
+    & > .form-node:nth-of-type(1) {
+        margin-top: 9px;
+    }
+}
+
+
+.form-list-appending__wrapper {
+    position: relative;
+
+    button {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        margin: 0;
+
+        transform: translateY(-50%);
+    }
+}
+
+.form-buttons-space-between{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

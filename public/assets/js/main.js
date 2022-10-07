@@ -19434,6 +19434,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/dashboard-vendor.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/dashboard-vendor.scss ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/main.scss":
 /*!**********************************!*\
   !*** ./resources/sass/main.scss ***!
@@ -19775,9 +19788,10 @@ process.umask = function() { return 0; };
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/main": 0,
-/******/ 			"css/main": 0,
-/******/ 			"css/dashboard": 0
+/******/ 			"/assets/js/main": 0,
+/******/ 			"assets/css/main": 0,
+/******/ 			"assets/dashboard/css/dashboard-vendor": 0,
+/******/ 			"assets/dashboard/css/dashboard": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -19827,9 +19841,10 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/main","css/dashboard"], () => (__webpack_require__("./resources/js/main.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/main","css/dashboard"], () => (__webpack_require__("./resources/sass/dashboard.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/main","css/dashboard"], () => (__webpack_require__("./resources/sass/main.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/css/main","assets/dashboard/css/dashboard-vendor","assets/dashboard/css/dashboard"], () => (__webpack_require__("./resources/js/main.js")))
+/******/ 	__webpack_require__.O(undefined, ["assets/css/main","assets/dashboard/css/dashboard-vendor","assets/dashboard/css/dashboard"], () => (__webpack_require__("./resources/sass/dashboard.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/css/main","assets/dashboard/css/dashboard-vendor","assets/dashboard/css/dashboard"], () => (__webpack_require__("./resources/sass/dashboard-vendor.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/css/main","assets/dashboard/css/dashboard-vendor","assets/dashboard/css/dashboard"], () => (__webpack_require__("./resources/sass/main.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

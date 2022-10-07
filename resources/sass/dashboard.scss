@@ -3,18 +3,18 @@
 @import "mixins/reset";
 
 @import "modules/containers";
-@import "modules/Dashboard/containers";
+@import "modules/dashboard/containers";
 @import "modules/layout";
 @import "modules/icons";
 @import "modules/form";
 
-@import "modules/Dashboard/buttons";
-@import "modules/Dashboard/layout";
-@import "modules/Dashboard/error-box";
-@import "modules/Dashboard/sidebar";
-@import "modules/Dashboard/search";
-@import "modules/Dashboard/form";
-@import "modules/Dashboard/table";
+@import "modules/dashboard/buttons";
+@import "modules/dashboard/layout";
+@import "modules/dashboard/error-box";
+@import "modules/dashboard/sidebar";
+@import "modules/dashboard/search";
+@import "modules/dashboard/form";
+@import "modules/dashboard/table";
 
 @import "modules/responsive";
 

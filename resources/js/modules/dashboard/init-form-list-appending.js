@@ -3,7 +3,7 @@ const buttonRemoveClass = 'form-list-appending__button-remove'
 const rootClass = 'form-list-appending'
 const wrapperClass = 'form-list-appending__wrapper'
 
-export function initFormAppending() {
+export function initFormListAppending() {
     document.querySelectorAll('.' + rootClass).forEach((formNodeBox) => {
         formNodeBox.querySelector('.' + buttonAddClass).addEventListener('click', addHandler)
 

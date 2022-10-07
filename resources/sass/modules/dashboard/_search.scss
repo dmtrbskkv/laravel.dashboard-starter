@@ -17,23 +17,6 @@
     box-shadow: 0 0 4px rgb(0 0 0 / 1%), 0 8px 57px rgb(0 0 0 / 2%);
 }
 
-.search-header__input {
-    max-width: 310px;
-    position: relative;
-
-    svg {
-        position: absolute;
-        left: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .form-node {
-        padding-left: 42px;
-        margin: 0;
-    }
-}
-
 .search-header__nav {
     margin-top: 9px;
     nav{
@@ -54,8 +37,10 @@
         text-transform: uppercase;
         text-decoration: none;
     }
-    svg{
-        margin-right: 4px;
+    i{
+        margin-right: 8px;
+        font-size: 22px;
+        line-height: 22px;
     }
 }
 .search-user{

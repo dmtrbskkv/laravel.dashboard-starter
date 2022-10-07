@@ -1,10 +1,10 @@
-@section('title', 'Сверхбыстрый VPN')
+@section('title', 'Home')
 
 @extends('frontend.layouts.default')
 
 @section('content')
     <div>
-        <h>Dashboard</h>
+        <h1>Dashboard</h1>
         <p>Welcome</p>
     </div>
 @endsection

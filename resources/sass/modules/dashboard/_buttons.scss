@@ -1,12 +1,13 @@
 .btn {
-    @include resetButton();
+    @include reset-button();
 
     cursor: pointer;
 
     font-size: 14px;
+    font-weight: 500;
     line-height: 14px;
 
-    padding: 16px 24px;
+    padding: 12px 14px;
     margin: 9px 0;
 
     color: inherit;
@@ -43,7 +44,7 @@
 }
 
 .btn-fixed {
-    min-width: 190px;
+    min-width: 120px;
 }
 .btn-square{
     width: 34px;

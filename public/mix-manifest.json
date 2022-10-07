@@ -1,9 +1,7 @@
 {
-    "/js/main.js": "/js/main.js",
-    "/js/dashboard.js": "/js/dashboard.js",
-    "/css/main.css": "/css/main.css",
-    "/css/dashboard.css": "/css/dashboard.css",
-    "/static/icons/icon-checkbox.svg": "/static/icons/icon-checkbox.svg",
-    "/static/icons/icon-select.svg": "/static/icons/icon-select.svg",
-    "/static/tariffs.pdf": "/static/tariffs.pdf"
+    "/assets/js/main.js": "/assets/js/main.js",
+    "/assets/dashboard/js/dashboard.js": "/assets/dashboard/js/dashboard.js",
+    "/assets/css/main.css": "/assets/css/main.css",
+    "/assets/dashboard/css/dashboard-vendor.css": "/assets/dashboard/css/dashboard-vendor.css",
+    "/assets/dashboard/css/dashboard.css": "/assets/dashboard/css/dashboard.css"
 }

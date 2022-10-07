@@ -1,12 +1,12 @@
-@mixin resetLink(){
+@mixin reset-link(){
     color: inherit;
     text-decoration: none;
 }
 .reset-link{
-    @include resetLink();
+    @include reset-link();
 }
 
-@mixin resetButton(){
+@mixin reset-form-node(){
     display: inline-block;
 
     color: inherit;
@@ -22,6 +22,12 @@
     border: none;
 }
 
-@mixin resetFormNode(){
-    @include resetButton();
+@mixin reset-button(){
+    @include reset-form-node();
+    cursor: pointer;
+}
+
+@mixin reset-input(){
+    @include reset-form-node();
+    cursor: text;
 }

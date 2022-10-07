@@ -10,17 +10,20 @@ class Container extends Component
     const CONTAINER_SIZE_FLUID = 1;
     const CONTAINER_SIZE_FIXED = 2;
     const CONTAINER_SIZE_SMALL = 3;
+    const CONTAINER_SIZE_AUTH = 4;
 
     const CONTAINERS_SIZES = [
         self::CONTAINER_SIZE_FLUID,
         self::CONTAINER_SIZE_FIXED,
         self::CONTAINER_SIZE_SMALL,
+        self::CONTAINER_SIZE_AUTH,
     ];
 
     const CONTAINER_SIZE_CLASSES = [
         self::CONTAINER_SIZE_FLUID => 'container-fluid',
         self::CONTAINER_SIZE_FIXED => 'container-fixed-large',
         self::CONTAINER_SIZE_SMALL => 'container-fixed-small',
+        self::CONTAINER_SIZE_AUTH => 'container-fixed-auth',
     ];
 
     public string $containerClass = 'container-fluid';

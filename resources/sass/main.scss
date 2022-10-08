@@ -2,13 +2,29 @@
 
 @import "mixins/reset";
 
-@import "modules/containers";
-@import "modules/layout";
-@import "modules/icons";
-@import "modules/form";
-
 @import "modules/responsive";
 
-html, body{
-    background: #FAFAFA;
+body, html {
+
+    margin: 0;
+    padding: 0;
+
+    height: 100%;
+    position: relative;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 160%;
+    font-weight: 400;
+    color: #4A4A4A;
+
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #1698E1;
 }

@@ -34,6 +34,10 @@
                     <input id="example-4" placeholder="текст" type="text">
                 </div>
             </div>
+            <div class="form-node">
+                <label for="example-4">Текстовое поле 3</label>
+                <textarea id="example-4" placeholder="текст" type="text"></textarea>
+            </div>
             <div class="form-group form-group-start">
                 <x-dashboard.custom-select
                     :values="[1=>'Первое значение', 'test'=>'Второе значение', 'this_is_test'=>'Третье значение']"

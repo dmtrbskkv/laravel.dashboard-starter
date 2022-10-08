@@ -153,7 +153,7 @@ a {
   margin-bottom: 12px;
   position: relative;
 }
-.form-node input {
+.form-node input:not([type=checkbox]):not([type=radio]), .form-node .form-select-trigger {
   display: inline-block;
   color: inherit;
   text-decoration: none;
@@ -172,7 +172,7 @@ a {
   border: 2px solid #dcdcdc;
   border-radius: 5px;
 }
-.form-node input:focus {
+.form-node input:not([type=checkbox]):not([type=radio]):focus, .form-node input:not([type=checkbox]):not([type=radio]):hover, .form-node .form-select-trigger:focus, .form-node .form-select-trigger:hover {
   border-color: #3997EE;
 }
 .form-node label {
@@ -180,7 +180,7 @@ a {
   font-weight: 700;
   font-size: 12px;
 }
-.form-node i + input {
+.form-node i + input:not([type=checkbox]):not([type=radio]) {
   padding-left: 42px;
 }
 .form-node i {
@@ -190,6 +190,64 @@ a {
   transform: translateY(-50%);
   font-size: 16px;
   line-height: 16px;
+}
+
+.form-node-select i {
+  position: relative;
+  left: 0;
+  top: 0;
+  transform: translateY(0);
+  font-size: 18px;
+}
+.form-node-select .form-select-trigger {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-node-select .form-select-trigger, .form-node-select .form-select-trigger * {
+  cursor: pointer;
+}
+.form-node-select .form-select-children {
+  max-height: 0;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  transition-property: max-height;
+  transition-duration: 0.2s;
+  padding: 0;
+  border-color: transparent;
+  overflow: hidden;
+}
+.form-node-select-active .form-select-children {
+  max-height: 800px;
+  padding: 2px 0;
+  transition-timing-function: cubic-bezier(0.95, 0.05, 0.8, 0.04);
+}
+
+.form-select-children ul {
+  background: #F4F4F4;
+  border: 2px solid #dcdcdc;
+  border-radius: 5px;
+  padding: 12px 0;
+  margin: 0;
+}
+.form-select-children ul .form-select-item, .form-select-children ul li {
+  display: block;
+  padding: 2px 16px;
+}
+.form-select-children ul .form-select-item, .form-select-children ul .form-select-item *, .form-select-children ul li, .form-select-children ul li * {
+  cursor: pointer;
+}
+.form-select-children ul .form-select-item:hover, .form-select-children ul .form-select-item.form-select-item-selected, .form-select-children ul li:hover, .form-select-children ul li.form-select-item-selected {
+  background: #e8e8e8;
+}
+.form-select-children ul .form-select-item.form-select-item-selected label, .form-select-children ul li.form-select-item-selected label {
+  font-weight: 700;
+}
+.form-select-children input {
+  display: none;
+}
+.form-select-children label {
+  font-weight: 400;
 }
 
 .btn {
@@ -344,7 +402,8 @@ a {
 .sidebar-nav__item-children {
   max-height: 0;
   overflow: hidden;
-  transition: 0.4s linear;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   font-size: 11px;
   padding-top: 4px;
 }
@@ -359,7 +418,8 @@ a {
 }
 
 .sidebar-nav__item-group-active .sidebar-nav__item-children {
-  max-height: 800px;
+  max-height: 300px;
+  transition-timing-function: ease-in;
 }
 
 .sidebar-body {

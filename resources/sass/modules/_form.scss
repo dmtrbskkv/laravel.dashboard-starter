@@ -1,11 +1,11 @@
-.form-node{
+.form-node {
     display: block;
     color: #606060;
     margin-bottom: 12px;
 
     position: relative;
 
-    input{
+    input:not([type="checkbox"]):not([type="radio"]), .form-select-trigger {
         @include reset-input();
 
         width: 100%;
@@ -15,18 +15,19 @@
         border: 2px solid #dcdcdc;
         border-radius: 5px;
 
-        &:focus{
+        &:focus, &:hover {
             border-color: #3997EE;
         }
     }
-    label{
+
+    label {
         display: block;
         font-weight: 700;
         font-size: 12px;
     }
 
 
-    i+input{
+    i + input:not([type="checkbox"]):not([type="radio"]) {
         padding-left: 42px;
     }
 
@@ -37,5 +38,84 @@
         transform: translateY(-50%);
         font-size: 16px;
         line-height: 16px;
+    }
+}
+
+
+.form-node-select {
+    i {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: translateY(0);
+        font-size: 18px;
+    }
+
+    .form-select-trigger {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        &, & * {
+            cursor: pointer;
+        }
+    }
+
+    .form-select-children {
+        max-height: 0;
+        transition-timing-function: cubic-bezier(.23, 1, .32, 1);
+        transition-property: max-height;
+        transition-duration: .2s;
+
+        padding: 0;
+        border-color: transparent;
+        overflow: hidden;
+    }
+
+    &-active {
+        .form-select-children {
+            max-height: 800px;
+            padding: 2px 0;
+
+            transition-timing-function: cubic-bezier(.95,.05,.8,.04);
+        }
+    }
+}
+
+
+.form-select-children {
+    ul {
+        background: #F4F4F4;
+        border: 2px solid #dcdcdc;
+        border-radius: 5px;
+
+        padding: 12px 0;
+        margin: 0;
+
+        .form-select-item, li {
+            display: block;
+            padding: 2px 16px;
+
+            &, & * {
+                cursor: pointer;
+            }
+
+            &:hover, &.form-select-item-selected {
+                background: #e8e8e8;
+            }
+
+            &.form-select-item-selected label {
+                font-weight: 700;
+            }
+        }
+    }
+
+    input {
+        display: none;
+    }
+
+    label {
+        font-weight: 400;
     }
 }

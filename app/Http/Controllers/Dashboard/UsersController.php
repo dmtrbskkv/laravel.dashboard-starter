@@ -21,7 +21,7 @@ class UsersController extends CRUDController
     public function showAll(Request $request): View
     {
         /** @var Collection $entities */
-        $entities = (new $this->model)::where('email','!=','root')->get();
+        $entities = (new $this->model)::where('email', '!=', 'root')->get();
 
         return view("dashboard.pages.{$this->viewDirectory}.list", [$this->viewEntitiesKey => $entities]);
     }
@@ -31,12 +31,12 @@ class UsersController extends CRUDController
         $email    = $request->post('email');
         $password = $request->post('password');
         $isClient = $request->has('is_client');
-        $roles    = $request->post('roles');
+        $roles    = $request->post('roles', '');
 
         if ($id) {
             $user = User::find($id);
         } else {
-            if ( ! $email || ! $password) {
+            if (!$email || !$password) {
                 return [false, ['Необходимо заполнить почту и пароль']];
             }
             $user = new User();
@@ -55,10 +55,11 @@ class UsersController extends CRUDController
             return [false, ['Не получается сохранить пользователя' . $e->getMessage()]];
         }
 
+        $roles = explode(',', $roles);
         if ($roles && is_array($roles)) {
             $user->roles()->delete();
             foreach ($roles as $role) {
-                if ( ! in_array($role, Role::ROLE_ACCESS_TYPES)) {
+                if (!in_array($role, Role::ROLE_ACCESS_TYPES)) {
                     continue;
                 }
 

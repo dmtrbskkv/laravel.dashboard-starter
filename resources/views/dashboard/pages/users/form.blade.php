@@ -19,22 +19,18 @@
             </div>
 
             <div class="form-wrapper-checkbox">
-                <input id="isClient" name="is_client"
-                       {{ isset($user) && $user->getAttribute('is_client') ? 'checked' : ''}} type="checkbox">
+                <input id="isClient"
+                       name="is_client"
+                       {{ isset($user) && $user->getAttribute('is_client') ? 'checked' : ''}}
+                       type="checkbox">
                 <label for="isClient">Клиент</label>
             </div>
         </x-dashboard.container>
 
         <x-dashboard.container containerSize="{{\App\View\Components\Dashboard\Container::CONTAINER_SIZE_SMALL}}">
-            <x-dashboard.form-list-appending>
-                <div class="form-node">
-                    <select name="roles[]">
-                        <option selected value="">Выбрать доступы</option>
-                        <option value="{{ \App\Models\Role::ROLE_ACCESS_TYPE_USERS }}">Пользователи</option>
-                    </select>
-                </div>
-                <button class="btn btn-danger form-list-appending__button-remove" type="button">Удалить</button>
-            </x-dashboard.form-list-appending>
+            <x-dashboard.custom-select
+                :values="\App\Helpers\Dashboard\View\UsersHelper::getRoles()"
+                name="roles" />
         </x-dashboard.container>
 
         <x-dashboard.container containerSize="{{\App\View\Components\Dashboard\Container::CONTAINER_SIZE_SMALL}}">

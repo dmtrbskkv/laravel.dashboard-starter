@@ -2196,56 +2196,107 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/modules/dashboard/init-form-list-appending.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/modules/dashboard/init-form-list-appending.js ***!
-  \********************************************************************/
+/***/ "./resources/js/modules/dashboard/init-custom-select.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/modules/dashboard/init-custom-select.js ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "initFormListAppending": () => (/* binding */ initFormListAppending)
+/* harmony export */   "initCustomSelect": () => (/* binding */ initCustomSelect)
 /* harmony export */ });
-var buttonAddClass = 'form-list-appending__button-add';
-var buttonRemoveClass = 'form-list-appending__button-remove';
-var rootClass = 'form-list-appending';
-var wrapperClass = 'form-list-appending__wrapper';
-function initFormListAppending() {
-  document.querySelectorAll('.' + rootClass).forEach(function (formNodeBox) {
-    formNodeBox.querySelector('.' + buttonAddClass).addEventListener('click', addHandler);
-    formNodeBox.querySelectorAll('.' + buttonRemoveClass).forEach(function (removeButtonNode) {
-      removeButtonNode.addEventListener('click', removeHandler);
+function initCustomSelect() {
+  var selectNodes = document.querySelectorAll('.form-node-select');
+
+  if (!selectNodes) {
+    return;
+  }
+
+  document.addEventListener('click', toggleSelect);
+  document.addEventListener('change', updateSelectValue);
+}
+
+function toggleSelect(event) {
+  var target = event.target;
+  var formNode = target.closest('.form-node-select');
+
+  if (!isSelectNodeEvent(event)) {
+    var selectNodes = document.querySelectorAll('.form-node-select');
+
+    if (!selectNodes) {
+      return;
+    }
+
+    selectNodes.forEach(function (selectNode) {
+      selectNode.classList.remove('form-node-select-active');
     });
+    return;
+  }
+
+  formNode.classList.toggle('form-node-select-active');
+}
+
+function updateSelectValue(event) {
+  var target = event.target;
+  var formNode = target.closest('.form-node-select');
+
+  if (!isSelectNodeEvent(event)) {
+    return;
+  }
+
+  var hiddenInput = formNode.querySelector('input[type="hidden"]');
+  var checkboxes = formNode.querySelectorAll('input[type="checkbox"]');
+  var trigger = formNode.querySelector('.form-select-trigger');
+  var triggerLabel = trigger.querySelector('span');
+  var values = [];
+  var labels = [];
+  checkboxes.forEach(function (checkbox) {
+    var checked = checkbox.checked;
+    var value = checkbox.value;
+
+    if (!checked || !value) {
+      checkbox.closest('.form-select-item').classList.remove('form-select-item-selected');
+      return;
+    }
+
+    checkbox.closest('.form-select-item').classList.add('form-select-item-selected');
+    values.push(value);
+    var label = checkbox.parentNode.querySelector('label');
+
+    if (label) {
+      label = label.textContent;
+      labels.push(label);
+    }
   });
+  hiddenInput.value = values.join(',');
+
+  if (labels.length === 0) {
+    var _trigger$dataset$plac;
+
+    triggerLabel.textContent = (_trigger$dataset$plac = trigger.dataset.placeholder) !== null && _trigger$dataset$plac !== void 0 ? _trigger$dataset$plac : 'Выбрать значение';
+  } else {
+    var label = labels.join(', ');
+
+    if (label.length >= 34) {
+      label = label.slice(0, 30) + '...';
+    }
+
+    triggerLabel.textContent = label;
+  }
 }
 
-function addHandler(event) {
-  var targetNode = event.target;
-  var parentNode = targetNode.parentNode;
-
-  if (!targetNode) {
-    return true;
-  }
-
-  var clonedNode = parentNode.querySelector('.' + wrapperClass).cloneNode(true);
-  clonedNode.value = "";
-  clonedNode.querySelector('.' + buttonRemoveClass).addEventListener('click', removeHandler);
-  var button = parentNode.querySelector('.' + buttonAddClass);
-  parentNode.insertBefore(clonedNode, button);
+function isSelectNodeEvent(event) {
+  var target = event.target;
+  var formNode = target.closest('.form-node-select');
+  return formNode !== null;
 }
 
-function removeHandler(event) {
-  var targetNode = event.target;
-  var wrapperNode = targetNode.closest('.' + wrapperClass);
-  var rootNode = targetNode.closest('.' + rootClass);
-  var wrapperNodes = rootNode.querySelectorAll('.' + wrapperClass);
-
-  if (wrapperNodes.length === 1) {
-    return true;
-  }
-
-  wrapperNode.remove();
+function isSelectNodeTriggerEvent(event) {
+  var target = event.target;
+  var trigger = target.closest('.form-select-trigger');
+  return isSelectNodeEvent(event) && trigger !== null;
 }
 
 /***/ }),
@@ -19791,13 +19842,13 @@ var __webpack_exports__ = {};
   \***********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-/* harmony import */ var _modules_dashboard_init_form_list_appending__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/dashboard/init-form-list-appending */ "./resources/js/modules/dashboard/init-form-list-appending.js");
-/* harmony import */ var _modules_dashboard_init_sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/dashboard/init-sidebar */ "./resources/js/modules/dashboard/init-sidebar.js");
+/* harmony import */ var _modules_dashboard_init_sidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/dashboard/init-sidebar */ "./resources/js/modules/dashboard/init-sidebar.js");
+/* harmony import */ var _modules_dashboard_init_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/dashboard/init-custom-select */ "./resources/js/modules/dashboard/init-custom-select.js");
 
 
 
-(0,_modules_dashboard_init_form_list_appending__WEBPACK_IMPORTED_MODULE_1__.initFormListAppending)();
-(0,_modules_dashboard_init_sidebar__WEBPACK_IMPORTED_MODULE_2__.initSidebar)();
+(0,_modules_dashboard_init_sidebar__WEBPACK_IMPORTED_MODULE_1__.initSidebar)();
+(0,_modules_dashboard_init_custom_select__WEBPACK_IMPORTED_MODULE_2__.initCustomSelect)();
 })();
 
 /******/ })()

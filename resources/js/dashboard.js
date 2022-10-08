@@ -1,6 +1,6 @@
 import './bootstrap';
-import {initFormListAppending} from "./modules/dashboard/init-form-list-appending";
 import {initSidebar} from "./modules/dashboard/init-sidebar";
+import {initCustomSelect} from "./modules/dashboard/init-custom-select";
 
-initFormListAppending()
 initSidebar()
+initCustomSelect()

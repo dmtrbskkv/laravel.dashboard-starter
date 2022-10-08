@@ -84,7 +84,8 @@
 .sidebar-nav__item-children {
     max-height: 0;
     overflow: hidden;
-    transition: .4s linear;
+    transition: 0.5s;
+    transition-timing-function: cubic-bezier(.23,1,.32,1);
 
     font-size: 11px;
     padding-top: 4px;
@@ -103,7 +104,8 @@
 
 .sidebar-nav__item-group-active {
     .sidebar-nav__item-children {
-        max-height: 800px;
+        max-height: 300px;
+        transition-timing-function: ease-in;
     }
 }
 

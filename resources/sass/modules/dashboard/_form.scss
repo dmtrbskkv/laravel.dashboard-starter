@@ -21,7 +21,7 @@ $space-between-nodes: 10px;
 
     position: relative;
 
-    input:not([type="checkbox"]):not([type="radio"]), .form-select-trigger {
+    input:not([type="checkbox"]):not([type="radio"]),textarea, .form-select-trigger {
         @include reset-input();
 
         width: 100%;
@@ -38,6 +38,9 @@ $space-between-nodes: 10px;
         &:focus {
             border-color: #3997EE;
         }
+    }
+    textarea{
+        resize: vertical;
     }
 
     .form-select-trigger:hover {

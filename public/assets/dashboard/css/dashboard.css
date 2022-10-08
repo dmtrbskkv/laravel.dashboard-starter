@@ -317,7 +317,7 @@
   width: 100%;
   position: relative;
 }
-.form-node input:not([type=checkbox]):not([type=radio]), .form-node .form-select-trigger {
+.form-node input:not([type=checkbox]):not([type=radio]), .form-node textarea, .form-node .form-select-trigger {
   display: inline-block;
   color: inherit;
   text-decoration: none;
@@ -336,11 +336,14 @@
   border: 2px solid #e3e3e3;
   border-radius: 5px;
 }
-.form-node input:not([type=checkbox]):not([type=radio]):hover, .form-node .form-select-trigger:hover {
+.form-node input:not([type=checkbox]):not([type=radio]):hover, .form-node textarea:hover, .form-node .form-select-trigger:hover {
   border-color: #d5d5d5;
 }
-.form-node input:not([type=checkbox]):not([type=radio]):focus, .form-node .form-select-trigger:focus {
+.form-node input:not([type=checkbox]):not([type=radio]):focus, .form-node textarea:focus, .form-node .form-select-trigger:focus {
   border-color: #3997EE;
+}
+.form-node textarea {
+  resize: vertical;
 }
 .form-node .form-select-trigger:hover {
   border-color: #3997EE;

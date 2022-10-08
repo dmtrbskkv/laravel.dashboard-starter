@@ -1,0 +1,19 @@
+.dataTables_wrapper .dataTables_paginate {
+    .paginate_button {
+        border-radius: 5px;
+    }
+
+    .paginate_button.current, .paginate_button.current:hover {
+        background: #479EEF !important;
+        color: white !important;
+        border: none !important;
+        box-shadow: 0px 0px 4px 1px rgba(71, 158, 239, 0.73);
+    }
+
+    .paginate_button:not(.current):hover {
+        background: transparent;
+        border-color: transparent;
+        color: inherit !important;
+    }
+
+}

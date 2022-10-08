@@ -113,10 +113,24 @@ a {
   transform: rotate(90deg);
 }
 
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.form-group > *:not(:last-child) {
+  margin-right: 10px;
+}
+
+.form-group-start {
+  align-items: flex-start;
+}
+
 .form-node {
   display: block;
   color: #606060;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  width: 100%;
   position: relative;
 }
 .form-node input:not([type=checkbox]):not([type=radio]), .form-node .form-select-trigger {
@@ -135,10 +149,16 @@ a {
   width: 100%;
   padding: 12px 14px;
   background: #F4F4F4;
-  border: 2px solid #dcdcdc;
+  border: 2px solid #e3e3e3;
   border-radius: 5px;
 }
-.form-node input:not([type=checkbox]):not([type=radio]):focus, .form-node input:not([type=checkbox]):not([type=radio]):hover, .form-node .form-select-trigger:focus, .form-node .form-select-trigger:hover {
+.form-node input:not([type=checkbox]):not([type=radio]):hover, .form-node .form-select-trigger:hover {
+  border-color: #d5d5d5;
+}
+.form-node input:not([type=checkbox]):not([type=radio]):focus, .form-node .form-select-trigger:focus {
+  border-color: #3997EE;
+}
+.form-node .form-select-trigger:hover {
   border-color: #3997EE;
 }
 .form-node label {
@@ -147,15 +167,18 @@ a {
   font-size: 12px;
 }
 .form-node i + input:not([type=checkbox]):not([type=radio]) {
-  padding-left: 42px;
+  padding-left: 32px;
 }
 .form-node i {
+  display: block;
   position: absolute;
   left: 12px;
   top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  line-height: 16px;
+  transform: translateY(calc(-50% - 1px));
+  font-size: 15px;
+}
+.form-node label + i {
+  top: calc(50% + 12px);
 }
 
 .form-node-select i {

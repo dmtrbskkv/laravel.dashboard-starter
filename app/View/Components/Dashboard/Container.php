@@ -34,7 +34,7 @@ class Container extends Component
      *
      * @return void
      */
-    public function __construct($containerSize = '', $fixedToCenter = null)
+    public function __construct($containerSize = self::CONTAINER_SIZE_FLUID, $fixedToCenter = null)
     {
         if (in_array($containerSize, self::CONTAINERS_SIZES)){
             $this->containerClass = self::CONTAINER_SIZE_CLASSES[$containerSize];

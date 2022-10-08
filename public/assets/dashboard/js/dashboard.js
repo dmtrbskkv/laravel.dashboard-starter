@@ -2247,7 +2247,7 @@ function updateSelectValue(event) {
   }
 
   var hiddenInput = formNode.querySelector('input[type="hidden"]');
-  var checkboxes = formNode.querySelectorAll('input[type="checkbox"]');
+  var checkboxes = formNode.querySelectorAll('input[type="checkbox"], input[type="radio"]');
   var trigger = formNode.querySelector('.form-select-trigger');
   var triggerLabel = trigger.querySelector('span');
   var values = [];
@@ -2270,7 +2270,7 @@ function updateSelectValue(event) {
       labels.push(label);
     }
   });
-  hiddenInput.value = values.join(',');
+  console.log(values);
 
   if (labels.length === 0) {
     var _trigger$dataset$plac;

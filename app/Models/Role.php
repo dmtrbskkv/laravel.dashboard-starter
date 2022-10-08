@@ -13,16 +13,16 @@ class Role extends Model
     protected $table = 'user_roles';
 
     const ROLE_ACCESS_TYPE_USERS = 'users';
-    const ROLE_ACCESS_TYPE_BLOCK = 'demo_blocks';
+    const ROLE_ACCESS_TYPE_DEMO  = 'demo';
 
     const ROLE_ACCESS_TYPES = [
         self::ROLE_ACCESS_TYPE_USERS,
-        self::ROLE_ACCESS_TYPE_BLOCK,
+        self::ROLE_ACCESS_TYPE_DEMO,
     ];
 
     const ROLE_ACCESS_TYPES_LABELS = [
         self::ROLE_ACCESS_TYPE_USERS => 'Пользователи',
-        self::ROLE_ACCESS_TYPE_BLOCK => 'Доступные блоки',
+        self::ROLE_ACCESS_TYPE_DEMO  => 'Демо',
     ];
 
     public function user(): BelongsTo

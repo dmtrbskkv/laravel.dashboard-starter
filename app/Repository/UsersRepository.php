@@ -6,7 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class Users extends Repository
+class UsersRepository extends Repository
 {
     protected static string $model = User::class;
 

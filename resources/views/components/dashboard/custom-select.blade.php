@@ -10,7 +10,7 @@
                 <li class="form-select-item">
                     <div class="form-select-item__checkbox">
                         <label for="{{$name}}-{{$value}}">{{$label}}</label>
-                        <input id="{{$name}}-{{$value}}" type="{{$format}}" value="{{$value}}">
+                        <input name="{{$name}}-item" id="{{$name}}-{{$value}}" type="{{$format}}" value="{{$value}}">
                     </div>
                 </li>
             @endforeach

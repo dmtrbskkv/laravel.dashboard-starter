@@ -35,16 +35,16 @@ function updateSelectValue(event) {
         return
     }
     const hiddenInput = formNode.querySelector('input[type="hidden"]')
-    const checkboxes = formNode.querySelectorAll('input[type="checkbox"]')
+    const checkboxes = formNode.querySelectorAll('input[type="checkbox"], input[type="radio"]')
     const trigger = formNode.querySelector('.form-select-trigger')
     const triggerLabel = trigger.querySelector('span')
 
     let values = [];
     let labels = []
-    checkboxes.forEach((checkbox)=>{
+    checkboxes.forEach((checkbox) => {
         const checked = checkbox.checked
         const value = checkbox.value
-        if (!checked || !value){
+        if (!checked || !value) {
             checkbox.closest('.form-select-item').classList.remove('form-select-item-selected')
             return
         }
@@ -53,18 +53,18 @@ function updateSelectValue(event) {
         values.push(value)
 
         let label = checkbox.parentNode.querySelector('label')
-        if (label){
+        if (label) {
             label = label.textContent
             labels.push(label)
         }
     })
-    hiddenInput.value = values.join(',')
 
-    if (labels.length === 0){
+    console.log(values)
+    if (labels.length === 0) {
         triggerLabel.textContent = trigger.dataset.placeholder ?? 'Выбрать значение'
-    }else{
+    } else {
         let label = labels.join(', ')
-        if (label.length >= 34){
+        if (label.length >= 34) {
             label = label.slice(0, 30) + '...'
         }
         triggerLabel.textContent = label

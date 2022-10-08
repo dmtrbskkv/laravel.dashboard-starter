@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\Dashboard\AuthorizationController;
+use App\Http\Controllers\Dashboard\BlocksController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\UsersController;
 use App\Http\Middleware\AuthenticateForDashboard;
-use App\Http\Middleware\Roles\HaveAccessToUsers;
+use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'auth.session', AuthenticateForDashboard::class])->group(function () {
@@ -12,11 +13,21 @@ Route::middleware(['auth', 'auth.session', AuthenticateForDashboard::class])->gr
     Route::get('/logout', [AuthorizationController::class, 'logout'])->name('logout');
 
     Route::prefix('/users')
-         ->middleware([HaveAccessToUsers::class])
+         ->middleware('role:'. Role::ROLE_ACCESS_TYPE_USERS)
          ->controller(UsersController::class)
          ->group(function () {
              CRUDRoutes('users');
          });
+
+    Route::prefix('demo')
+        ->middleware('role:'. Role::ROLE_ACCESS_TYPE_DEMO)
+        ->controller(BlocksController::class)
+        ->group(function (){
+            Route::get('/', 'showDescription')->name('dashboard-demo-description');
+            Route::get('/forms', 'showForms')->name('dashboard-demo-forms');
+            Route::get('/containers', 'showContainers')->name('dashboard-demo-containers');
+            Route::get('/tables', 'showTables')->name('dashboard-demo-tables');
+        });
 });
 
 

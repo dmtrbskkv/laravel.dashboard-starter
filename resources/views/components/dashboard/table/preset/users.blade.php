@@ -1,5 +1,5 @@
 @if(isset($users) && $users->count() !== 0)
-    <table class="table table-default">
+    <table class="table-dashboard table-dashboard-default">
         <thead>
         <tr>
             <td>#</td>

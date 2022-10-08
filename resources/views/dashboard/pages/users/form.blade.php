@@ -9,9 +9,9 @@
             @csrf
             <div class="form-node">
                 <input name="email"
-                       {{isset($user) ? 'disabled' : ''}}
+                       @disabled(!isset($user))
                        placeholder="Почта" type="email"
-                       value="{{isset($user) && $user ? $user->getAttribute('email') : ''}}">
+                       value="{{isset($user) ? $user?->getAttribute('email') : ''}}">
             </div>
             <div class="form-node">
                 <input name="password"
@@ -21,7 +21,7 @@
             <div class="form-wrapper-checkbox">
                 <input id="isClient"
                        name="is_client"
-                       {{ isset($user) && $user->getAttribute('is_client') ? 'checked' : ''}}
+                       @checked(isset($user) && $user?->getAttribute('is_client'))
                        type="checkbox">
                 <label for="isClient">Клиент</label>
             </div>
@@ -30,6 +30,7 @@
         <x-dashboard.container containerSize="{{\App\View\Components\Dashboard\Container::CONTAINER_SIZE_SMALL}}">
             <x-dashboard.custom-select
                 :values="\App\Helpers\Dashboard\View\UsersHelper::getRoles()"
+                placeholder="Выбрать права"
                 name="roles" />
         </x-dashboard.container>
 

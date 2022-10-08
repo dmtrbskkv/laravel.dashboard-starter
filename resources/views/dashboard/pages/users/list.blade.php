@@ -9,7 +9,7 @@
             <a href="{{route('users-create')}}" class="btn btn-default">Добавить</a>
         </div>
         <div>
-            @include('components.dashboard.table.preset.users')
+            @include('components.dashboard.table.content.users')
         </div>
     </x-dashboard.container>
 @endsection

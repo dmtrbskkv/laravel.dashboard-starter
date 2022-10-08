@@ -3,7 +3,7 @@
 @section('body')
     <main class="layout layout-main">
         <x-dashboard.sidebar/>
-        <x-dashboard.search/>
+        <x-dashboard.header/>
         @section('content')
         @show
     </main>
